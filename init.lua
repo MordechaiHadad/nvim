@@ -1,0 +1,5 @@
+require("plugins")
+require("core.settings")
+require("core.keymappings")
+require("core.autocommands")
+require("core.lsp")
