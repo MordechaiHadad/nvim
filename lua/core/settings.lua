@@ -5,6 +5,7 @@ vim.o.clipboard = "unnamedplus" -- enable clipboard
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.hidden = true
+vim.o.exrc = true
 vim.cmd("set timeoutlen=600")
 vim.cmd("syntax on")
 vim.cmd("set splitkeep=screen")
