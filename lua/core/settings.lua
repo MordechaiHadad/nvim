@@ -1,13 +1,5 @@
 -- General settings
 vim.o.wrap = false -- no wraping
-
-local current_buffer = vim.api.nvim_get_current_buf()
-local is_modifiable = vim.api.nvim_buf_get_option(current_buffer, "modifiable")
-if is_modifiable then
-    vim.o.fileencoding = "utf-8"
-    vim.opt.fileformat = "unix"
-end
-
 vim.o.number = true -- enable numbers
 vim.o.clipboard = "unnamedplus" -- enable clipboard
 vim.o.backup = false
