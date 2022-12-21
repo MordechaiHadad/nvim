@@ -157,4 +157,5 @@ require("lazy").setup({
 	"LudoPinelli/comment-box.nvim",
 	{ "akinsho/toggleterm.nvim", config = require("plugins.configs.toggleterm"), keys = "<F12>" },
     { "max397574/which-key.nvim", config = require("plugins.configs.which-key"), keys = "<Space>" },
+    "stevearc/overseer.nvim"
 })
