@@ -1,8 +1,8 @@
 -- General settings
-vim.wo.wrap = false -- no wraping
+vim.o.wrap = false -- no wraping
 vim.o.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
-vim.wo.number = true -- enable numbers
+vim.o.number = true -- enable numbers
 vim.o.clipboard = "unnamedplus" -- enable clipboard
 vim.o.backup = false
 vim.o.writebackup = false
@@ -22,7 +22,7 @@ vim.cmd("set undofile")
 -- UI
 vim.o.updatetime = 300
 vim.o.showmode = false
-vim.wo.cursorline = true
+vim.o.cursorline = true
 vim.o.termguicolors = true
 vim.o.pumheight = 8
 vim.o.showtabline = 2
