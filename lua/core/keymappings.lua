@@ -31,6 +31,13 @@ keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts) -- Go to Definition
 -- fuck you deleted bullshit
 keymap("n", "dd", '"_dd', opts)
 
+function delete_and_yank_line()
+    local line = vim.fn.getline(".")
+    vim.api.nvim_del_current_line()
+    vim.fn.setreg("+", line)
+end
+keymap("n", "xx", ":lua delete_and_yank_line()<CR>", opts) -- Replace dd to yank and delete
+
 -- Bufferline
 keymap("n", "<TAB>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", opts)
