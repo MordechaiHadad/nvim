@@ -1,3 +1,3 @@
 return function()
-	vim.g.Illuminate_ftblacklist = { "NvimTree" }
+    vim.g.Illuminate_ftblacklist = { "NvimTree" }
 end

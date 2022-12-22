@@ -1,14 +1,14 @@
 return function()
-	local present, luasnip = pcall(require, "luasnip")
+    local present, luasnip = pcall(require, "luasnip")
 
-	if not present then
-		return
-	end
+    if not present then
+        return
+    end
 
-	luasnip.config.set_config({
-		history = true,
-		updateevents = "TextChanged,TextChangedI",
-	})
+    luasnip.config.set_config({
+        history = true,
+        updateevents = "TextChanged,TextChangedI",
+    })
 
-	require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load()
 end
