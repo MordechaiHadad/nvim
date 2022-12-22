@@ -196,7 +196,7 @@ require("lazy").setup({
         config = function()
             require("Comment").setup()
         end,
-        event = "BufWinEnter",
+        keys = "gc",
     },
     { "fedepujol/move.nvim", event = "BufWinEnter" },
     "LudoPinelli/comment-box.nvim",
