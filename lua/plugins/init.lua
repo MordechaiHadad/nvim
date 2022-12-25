@@ -15,9 +15,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+local is_dev = true
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    is_dev = false
+end
+
 require("lazy").setup({
     -- Colorscheme
-    { dir = "/home/morde/repos/themer.lua", config = require("plugins.configs.themer") },
+    { "ThemerCorp/themer.lua", dev = is_dev, config = require("plugins.configs.themer") },
     {
         "nvim-treesitter/nvim-treesitter",
         config = require("plugins.configs.treesitter"),
@@ -233,5 +238,12 @@ require("lazy").setup({
             require("project_nvim").setup()
         end,
         event = "BufWinEnter",
+    },
+}, {
+    dev = {
+        -- directory where you store your local plugin projects
+        path = "~/repos",
+        ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+        patterns = {}, -- For example {"folke"}
     },
 })
