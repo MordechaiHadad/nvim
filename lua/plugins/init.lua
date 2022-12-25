@@ -16,8 +16,10 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 local is_dev = true
+local tabine_script = "./install.sh"
 if vim.loop.os_uname().sysname == "Windows_NT" then
     is_dev = false
+    tabine_script = ".\\install.ps1"
 end
 
 require("lazy").setup({
@@ -136,7 +138,7 @@ require("lazy").setup({
             "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-calc",
             "hrsh7th/cmp-cmdline",
-            { "tzachar/cmp-tabnine", build = "./install.sh" },
+            { "tzachar/cmp-tabnine", build = tabine_script },
         },
     },
 
