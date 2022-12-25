@@ -156,13 +156,13 @@ require("lazy").setup({
     },
 
     -- Lua Dev
-    -- {
-    --     "folke/neodev.nvim",
-    --     config = function()
-    --         require("neodev").setup({})
-    --     end,
-    --     ft = "lua",
-    -- }, Need to uncomment this after i figure out why mason doesnt work
+    {
+        "folke/neodev.nvim",
+        config = function()
+            require("neodev").setup({})
+        end,
+        ft = "lua",
+    },
 
     -- Rust Dev
     {
