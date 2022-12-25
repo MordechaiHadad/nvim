@@ -65,27 +65,27 @@ require("lazy").setup({
     },
 
     -- LSP
-    { "neovim/nvim-lspconfig" },
-    { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.configs.null-ls") },
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
+        "neovim/nvim-lspconfig",
         dependencies = {
             {
-                "williamboman/mason-lspconfig.nvim",
+                "williamboman/mason.nvim",
                 config = function()
-                    require("mason-lspconfig").setup()
+                    require("mason").setup()
                 end,
-            },
-            {
-                "SmiteshP/nvim-navic",
-                config = function()
-                    require("nvim-navic").setup({})
-                end,
+                dependencies = {
+                    "williamboman/mason-lspconfig.nvim",
+                    config = require("plugins.configs.mason"),
+                },
             },
         },
+    },
+    { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.configs.null-ls") },
+    {
+        "SmiteshP/nvim-navic",
+        config = function()
+            require("nvim-navic").setup({})
+        end,
     },
     {
         "glepnir/lspsaga.nvim",
@@ -144,6 +144,17 @@ require("lazy").setup({
         end,
     },
 
+    -- Language Agnostic Tools
+    { "michaelb/sniprun", build = "bash ./install.sh", lazy = true, cmd = { "SnipRun", "SnipInfo" } }, -- Not exactly working I am not sure why...
+    {
+        "stevearc/overseer.nvim",
+        config = function()
+            require("overseer").setup()
+        end,
+        dependencies = { "stevearc/dressing.nvim" },
+        event = "VeryLazy",
+    },
+
     -- Lua Dev
     -- {
     --     "folke/neodev.nvim",
@@ -152,15 +163,8 @@ require("lazy").setup({
     --     end,
     --     ft = "lua",
     -- }, Need to uncomment this after i figure out why mason doesnt work
-    {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup()
-        end,
-        event = "BufWinEnter",
-    },
 
-    --Rust Dev
+    -- Rust Dev
     {
         "saecki/crates.nvim",
         event = "BufRead Cargo.toml",
@@ -203,14 +207,6 @@ require("lazy").setup({
     { "akinsho/toggleterm.nvim", config = require("plugins.configs.toggleterm"), keys = "<F12>" },
     { "max397574/which-key.nvim", config = require("plugins.configs.which-key"), event = "VeryLazy" },
     {
-        "stevearc/overseer.nvim",
-        config = function()
-            require("overseer").setup()
-        end,
-        dependencies = { "stevearc/dressing.nvim" },
-        event = "VeryLazy",
-    },
-    {
         "folke/todo-comments.nvim",
         event = "BufWinEnter",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -223,5 +219,19 @@ require("lazy").setup({
         event = "BufReadPre",
         lazy = true,
         config = require("plugins.configs.persistence"),
+    },
+    {
+        "rktjmp/paperplanes.nvim",
+        cmd = "PP",
+        config = function()
+            require("paperplanes").setup({})
+        end,
+    },
+    {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup()
+        end,
+        event = "BufWinEnter",
     },
 })
