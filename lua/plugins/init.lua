@@ -214,7 +214,9 @@ require("lazy").setup({
     },
     {
         "ahmedkhalf/project.nvim",
-        config = true,
+        config = function()
+            require("project_nvim").setup({})
+        end,
         event = "BufWinEnter",
     },
 }, {
