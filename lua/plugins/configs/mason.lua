@@ -15,4 +15,16 @@ return function()
             illuminate.on_attach(client)
         end,
     })
+    require("lspconfig").tsserver.setup({
+        on_attach = function(client, bufnr)
+            navic.attach(client, bufnr)
+            illuminate.on_attach(client)
+        end,
+    })
+    require("lspconfig").pyright.setup({
+        on_attach = function(client, bufnr)
+            navic.attach(client, bufnr)
+            illuminate.on_attach(client)
+        end,
+    })
 end

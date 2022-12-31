@@ -37,9 +37,7 @@ require("lazy").setup({
     {
         "zbirenbaum/neodim",
         event = "LspAttach",
-        config = function()
-            require("neodim").setup()
-        end,
+        config = true,
     },
 
     -- UI
@@ -54,9 +52,7 @@ require("lazy").setup({
     { "rebelot/heirline.nvim", config = require("plugins.configs.heirline") },
     {
         "kyazdani42/nvim-tree.lua",
-        config = function()
-            require("nvim-tree").setup({})
-        end,
+        config = true,
         cmd = "NvimTreeToggle",
     },
     { "glepnir/dashboard-nvim", config = require("plugins.configs.dashboard") },
@@ -77,9 +73,7 @@ require("lazy").setup({
         dependencies = {
             {
                 "williamboman/mason.nvim",
-                config = function()
-                    require("mason").setup()
-                end,
+                config = true,
                 dependencies = {
                     "williamboman/mason-lspconfig.nvim",
                     config = require("plugins.configs.mason"),
@@ -90,9 +84,7 @@ require("lazy").setup({
     { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.configs.null-ls") },
     {
         "SmiteshP/nvim-navic",
-        config = function()
-            require("nvim-navic").setup({})
-        end,
+        config = true,
     },
     {
         "glepnir/lspsaga.nvim",
@@ -146,18 +138,14 @@ require("lazy").setup({
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("gitsigns").setup()
-        end,
+        config = true,
     },
 
     -- Language Agnostic Tools
     { "michaelb/sniprun", build = "bash ./install.sh", lazy = true, cmd = { "SnipRun", "SnipInfo" } }, -- Not exactly working I am not sure why...
     {
         "stevearc/overseer.nvim",
-        config = function()
-            require("overseer").setup()
-        end,
+        config = true,
         dependencies = { "stevearc/dressing.nvim" },
         event = "VeryLazy",
     },
@@ -165,9 +153,7 @@ require("lazy").setup({
     -- Lua Dev
     {
         "folke/neodev.nvim",
-        config = function()
-            require("neodev").setup({})
-        end,
+        config = true,
         ft = "lua",
     },
 
@@ -180,9 +166,7 @@ require("lazy").setup({
     },
     {
         "simrat39/rust-tools.nvim",
-        config = function()
-            require("rust-tools").setup({})
-        end,
+        config = true,
         ft = "rs",
     },
 
@@ -204,9 +188,7 @@ require("lazy").setup({
     { "windwp/nvim-autopairs", event = "InsertEnter", config = require("plugins.configs.autopairs") },
     {
         "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
+        config = true,
         keys = "gc",
     },
     { "fedepujol/move.nvim", event = "BufWinEnter" },
@@ -217,9 +199,7 @@ require("lazy").setup({
         "folke/todo-comments.nvim",
         event = "BufWinEnter",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("todo-comments").setup()
-        end,
+        config = true,
     },
     {
         "folke/persistence.nvim",
@@ -230,15 +210,11 @@ require("lazy").setup({
     {
         "rktjmp/paperplanes.nvim",
         cmd = "PP",
-        config = function()
-            require("paperplanes").setup({})
-        end,
+        config = true,
     },
     {
         "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup()
-        end,
+        config = true,
         event = "BufWinEnter",
     },
 }, {
