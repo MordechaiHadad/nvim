@@ -388,7 +388,8 @@ return function()
         hl = { bg = colors.line_color },
     }
 
-    require("heirline").setup(statusline, winbar)
+    require("heirline").setup({ statusline = statusline, winbar = winbar })
+
     vim.api.nvim_create_autocmd("User", {
         pattern = "HeirlineInitWinbar",
         callback = function(args)

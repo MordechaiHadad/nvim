@@ -1,30 +1,18 @@
 return function()
     local navic = require("nvim-navic")
     local illuminate = require("illuminate")
+    local mason = require("mason-lspconfig")
 
-    require("mason-lspconfig").setup()
-    require("lspconfig").sumneko_lua.setup({
-        on_attach = function(client, bufnr)
-            navic.attach(client, bufnr)
-            illuminate.on_attach(client)
-        end,
-    })
-    require("lspconfig").rust_analyzer.setup({
-        on_attach = function(client, bufnr)
-            navic.attach(client, bufnr)
-            illuminate.on_attach(client)
-        end,
-    })
-    require("lspconfig").tsserver.setup({
-        on_attach = function(client, bufnr)
-            navic.attach(client, bufnr)
-            illuminate.on_attach(client)
-        end,
-    })
-    require("lspconfig").pyright.setup({
-        on_attach = function(client, bufnr)
-            navic.attach(client, bufnr)
-            illuminate.on_attach(client)
+    mason.setup()
+
+    mason.setup_handlers({
+        function(server_name)
+            require("lspconfig")[server_name].setup({
+                on_attach = function(client, bufnr)
+                    navic.attach(client, bufnr)
+                    illuminate.on_attach(client)
+                end,
+            })
         end,
     })
 end

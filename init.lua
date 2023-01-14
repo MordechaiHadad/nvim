@@ -1,5 +1,5 @@
 require("plugins")
 require("core.settings")
-require("core.keymappings")
+require("core.keymaps")
 require("core.autocommands")
 require("core.lsp")
