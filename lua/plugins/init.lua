@@ -1,4 +1,4 @@
---         ╭──────────────────────────────────────────────────────────╮
+--         ╭──────────────────────────────────────────────────────────╮plug
 --         │                           Plugins                        │
 --         ╰──────────────────────────────────────────────────────────╯
 
@@ -55,8 +55,8 @@ require("lazy").setup({
         config = true,
         cmd = "NvimTreeToggle",
     },
-    { "glepnir/dashboard-nvim", config = require("plugins.configs.dashboard") },
     "kyazdani42/nvim-web-devicons",
+    {  "goolord/alpha-nvim", event = "VimEnter", config = require("plugins.configs.alpha")},
     {
         "folke/noice.nvim",
         event = "VimEnter",
@@ -127,8 +127,16 @@ require("lazy").setup({
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-path",
-            "rafamadriz/friendly-snippets",
-            { "L3MON4D3/LuaSnip", config = require("plugins.configs.luasnip") },
+            {
+                "L3MON4D3/LuaSnip",
+                config = require("plugins.configs.luasnip"),
+                dependencies = {
+                    "rafamadriz/friendly-snippets",
+                    config = function()
+                        require("luasnip.loaders.from_vscode").lazy_load()
+                    end,
+                },
+            },
             "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-calc",
             "hrsh7th/cmp-cmdline",
